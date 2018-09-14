@@ -567,7 +567,7 @@ static int hwcrhk_init(ENGINE *e)
     /* Attempt to load libnfhwcrhk.so/nfhwcrhk.dll/whatever. */
     if ((hwcrhk_libname != NULL
          && (hwcrhk_dso = lt_dlopenext(hwcrhk_libname)) == NULL)
-        || (hwcrhk_dso = lt_dlopenext(hwcrhk_name)) == NULL) {
+        && (hwcrhk_dso = lt_dlopenext(hwcrhk_name)) == NULL) {
         HWCRHKerr(HWCRHK_F_HWCRHK_INIT, HWCRHK_R_DSO_FAILURE);
         goto err;
     }
